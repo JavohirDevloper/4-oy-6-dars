@@ -1,0 +1,51 @@
+type Query {
+  stationLinks: [StationLink!]!
+  stationLink(id: ID!): StationLink!
+  pathLinks: [PathLink!]!
+  pathLink(id: ID!): PathLink!
+}
+
+type Mutation {
+  createStationLink(input: CreateStationLinkInput!): StationLink!
+  updateStationLink(id: ID!, input: UpdateStationLinkInput!): StationLink!
+  removeStationLink(id: ID!): StationLink!
+
+  createPathLink(input: CreatePathLinkInput!): PathLink!
+  updatePathLink(id: ID!, input: UpdatePathLinkInput!): PathLink!
+  removePathLink(id: ID!): PathLink!
+}
+
+type Subscription {
+  stationlinkCreated: StationLink!
+  pathLinkCreated: PathLink!
+}
+
+type StationLink {
+  station: Station!
+  linked_station: Station!
+}
+
+type PathLink {
+  path: Path!
+  linked_path: Path!
+}
+
+input CreateStationLinkInput {
+  station_id: ID!
+  linked_id: ID!
+}
+
+input UpdateStationLinkInput {
+  station_id: ID!
+  linked_id: ID!
+}
+
+input CreatePathLinkInput {
+  path_id: ID!
+  linked_id: ID!
+}
+
+input UpdatePathLinkInput {
+  path_id: ID
+  linked_id: ID
+}

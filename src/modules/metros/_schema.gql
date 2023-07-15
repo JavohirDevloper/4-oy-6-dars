@@ -1,0 +1,28 @@
+type Query {
+  metros: [Metro!]!
+  metro(id: ID!): Metro!
+}
+
+type Mutation {
+  createMetro(input: CreateMetroInput!): Metro!
+  updateMetro(id: ID!, input: UpdateMetroInput!): Metro!
+  removeMetro(id: ID!): Metro!
+}
+
+type Subscription {
+  metroCreated: Metro!
+}
+
+type Metro {
+  id: ID!
+  name: String!
+  paths: [Path!]!
+}
+
+input CreateMetroInput {
+  name: String!
+}
+
+input UpdateMetroInput {
+  name: String!
+}
