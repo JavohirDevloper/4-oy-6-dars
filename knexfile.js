@@ -8,11 +8,11 @@ export default {
   development: {
     client: "postgresql",
     connection: {
-      host: "localhost",
-      port: 5432,
+      host: config.db.host,
+      port: config.db.port,
       database: config.db.name,
-      user: "postgres",
-      password: "5265",
+      user: config.db.user,
+      password: config.db.password,
     },
     pool: {
       min: 2,
@@ -30,11 +30,11 @@ export default {
   staging: {
     client: "postgresql",
     connection: {
-      host: "localhost",
-      port: 5432,
+      host: config.db.host,
+      port: config.db.port,
       database: config.db.name,
-      user: "postgres",
-      password: "5265",
+      user: config.db.user,
+      password: config.db.password,
     },
     pool: {
       min: 2,
@@ -52,11 +52,11 @@ export default {
   production: {
     client: "postgresql",
     connection: {
-      host: "localhost",
-      port: 5432,
+      host: config.db.host,
+      port: config.db.port,
       database: config.db.name,
-      user: "postgres",
-      password: "5265",
+      user: config.db.user,
+      password: config.db.password,
     },
     pool: {
       min: 2,
