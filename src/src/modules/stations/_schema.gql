@@ -1,0 +1,40 @@
+type Query {
+  stations: [Station!]!
+  station(id: ID!): Station!
+}
+
+type Mutation {
+  createStation(input: CreateStationInput!): Station!
+  updateStation(id: ID!, input: UpdateStationInput!): Station!
+  removeStation(id: ID!): Station!
+}
+
+type Subscription {
+  stationCreated: Station!
+}
+
+type Station {
+  id: ID!
+  name: String!
+  path: Path!
+  forward: Station
+  backward: Station
+  has_path_link: Boolean
+  links: [StationLink!]
+}
+
+input CreateStationInput {
+  name: String!
+  path_id: ID!
+  forward_id: ID
+  backward_id: ID
+  has_path_link: Boolean
+}
+
+input UpdateStationInput {
+  name: String
+  path_id: ID!
+  forward_id: ID
+  backward_id: ID
+  has_path_link: Boolean
+}

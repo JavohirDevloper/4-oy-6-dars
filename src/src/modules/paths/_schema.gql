@@ -1,0 +1,32 @@
+type Query {
+  paths: [Path!]!
+  path(id: ID!): Path!
+}
+
+type Mutation {
+  createPath(input: CreatePathInput!): Path!
+  updatePath(id: ID!, input: UpdatePathInput!): Path!
+  removePath(id: ID!): Path!
+}
+
+type Subscription {
+  pathCreated: Path!
+}
+
+type Path {
+  id: ID!
+  name: String!
+  metro: Metro!
+  stations: [Station!]!
+  links: [PathLink!]
+}
+
+input CreatePathInput {
+  name: String!
+  metro_id: ID!
+}
+
+input UpdatePathInput {
+  name: String!
+  metro_id: ID!
+}
